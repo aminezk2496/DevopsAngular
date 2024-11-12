@@ -16,9 +16,9 @@ RUN npm run build --prod
 FROM nginx:alpine
 
 # Copier les fichiers de build d'Angular dans le répertoire par défaut de Nginx
-COPY --from=build /app/dist/ProjetAngular17 /usr/share/nginx/html
+COPY --from=build /app/dist/projet-angular17 /usr/share/nginx/html
 
-# Exposer le port 80
+# Exposer le port 8287
 EXPOSE 8287
 
 # Lancer Nginx
