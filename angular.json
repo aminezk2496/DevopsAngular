@@ -63,7 +63,8 @@
               "browserTarget": "ProjetAngular17:build:production"
             },
             "development": {
-              "browserTarget": "ProjetAngular17:build:development"
+              "browserTarget": "ProjetAngular17:build:development",
+              "port": 4200
             }
           },
           "defaultConfiguration": "development"
@@ -94,5 +95,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "3847da69-08ee-4d9f-93c4-8d44b4b4a4c1"
   }
 }
