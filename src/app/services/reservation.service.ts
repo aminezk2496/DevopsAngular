@@ -7,7 +7,7 @@ import { Reservation } from '../models/Reservation';
   providedIn: 'root'
 })
 export class ReservationService {
-  private baseUrl = 'http:///spring-app:8287/api/reservations'; // Remplacez par l'URL de votre API
+  private baseUrl = 'http://spring-app:8287/api/reservations'; // Remplacez par l'URL de votre API
 
   constructor(private http: HttpClient) {}
 
