@@ -7,7 +7,7 @@ import { Etudiant } from '../models/etudiant';
   providedIn: 'root',
 })
 export class EtudiantService {
-  private apiUrl = 'http://mysqldb:8287/tpFoyer17/api/etudiants'; // URL de votre API backend
+  private apiUrl = 'http://192.168.33.10:8287/tpFoyer17/api/etudiants'; // URL de votre API backend
 
   constructor(private http: HttpClient) {}
 
