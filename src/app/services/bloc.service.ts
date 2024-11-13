@@ -8,7 +8,7 @@ import { Chambre } from '../models/chambre';
   providedIn: 'root'
 })
 export class BlocService {
-  private apiUrl = 'http://localhost:8082/tpFoyer17/api/blocs';
+  private apiUrl = 'http://192.168.33.10:8082/tpFoyer17/api/blocs';
 
   constructor(private http: HttpClient) {}
 
