@@ -8,7 +8,7 @@ import { Foyer } from '../models/foyer';
 })
 export class FoyerService {
 
-  private apiUrl = 'http://spring-app:8287/api/foyers'; // Remplacer par l'URL de votre API
+  private apiUrl = 'http://192.168.33.10:8287/api/foyers'; // Remplacer par l'URL de votre API
 
   constructor(private http: HttpClient) { }
 
