@@ -7,7 +7,7 @@ import { Bloc } from '../models/bloc';
   providedIn: 'root'
 })
 export class BlocService {
-  private apiUrl = 'http://spring-app:8287/tpFoyer17/api/blocs';
+  private apiUrl = 'http://192.168.33.10:8287/tpFoyer17/api/blocs';
 
   constructor(private http: HttpClient) {}
 
