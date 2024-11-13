@@ -19,7 +19,7 @@ FROM nginx:alpine
 COPY --from=build /app/dist/projet-angular17 /usr/share/nginx/html
 
 # Exposer le port 8287
-EXPOSE 8287
+EXPOSE 80
 
 # Lancer Nginx
 CMD ["nginx", "-g", "daemon off;"]
