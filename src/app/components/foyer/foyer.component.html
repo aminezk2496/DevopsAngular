@@ -1,0 +1,78 @@
+<div class="container">
+  <h2>Liste des foyers</h2>
+
+  <!-- Liste des foyers -->
+  <table class="table table-striped table-hover">
+    <thead style="background-color: #123a66; color: white;">
+      <tr>
+        <th>#</th>
+        <th>Nom du Foyer</th>
+        <th>Adresse</th>
+        <th>Capacité</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let foyer of foyers" (click)="selectFoyer(foyer)">
+        <td>{{ foyer.idFoyer }}</td>
+        <td>{{ foyer.nomFoyer }}</td>
+        <td>{{ foyer.adresse }}</td>
+        <td>{{ foyer.capaciteFoyer }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Formulaire d'ajout -->
+  <div class="card mt-4">
+    <div class="card-header" style="background-color: #123a66; color: white;">
+      <h4>Ajouter un Foyer</h4>
+    </div>
+    <div class="card-body">
+      <form (ngSubmit)="addFoyer()">
+        <div class="form-group">
+          <label for="nomFoyer">Nom du Foyer</label>
+          <input type="text" id="nomFoyer" class="form-control mb-2" [(ngModel)]="newFoyer.nomFoyer" name="nomFoyer" required>
+        </div>
+        <div class="form-group">
+          <label for="adresse">Adresse</label>
+          <input type="text" id="adresse" class="form-control mb-2" [(ngModel)]="newFoyer.adresse" name="adresse" required>
+        </div>
+        <div class="form-group">
+          <label for="capaciteFoyer">Capacité</label>
+          <input type="number" id="capaciteFoyer" class="form-control mb-2" [(ngModel)]="newFoyer.capaciteFoyer" name="capaciteFoyer" required>
+        </div>
+        <button type="submit" class="btn btn-success">Ajouter</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Formulaire de mise à jour -->
+  <div *ngIf="isUpdateMode" class="card mt-4">
+    <div class="card-header" style="background-color: #123a66; color: white;">
+      <h4>Mettre à jour le Foyer</h4>
+    </div>
+    <div class="card-body">
+      <form (ngSubmit)="updateFoyer()">
+        <div class="form-group">
+          <label for="nomFoyer">Nom du Foyer</label>
+          <input type="text" id="nomFoyer" class="form-control mb-2" [(ngModel)]="selectedFoyer.nomFoyer" name="nomFoyer" required>
+        </div>
+        <div class="form-group">
+          <label for="adresse">Adresse</label>
+          <input type="text" id="adresse" class="form-control mb-2" [(ngModel)]="selectedFoyer.adresse" name="adresse" required>
+        </div>
+        <div class="form-group">
+          <label for="capaciteFoyer">Capacité</label>
+          <input type="number" id="capaciteFoyer" class="form-control mb-2" [(ngModel)]="selectedFoyer.capaciteFoyer" name="capaciteFoyer" required>
+        </div>
+        <!-- Champ pour l'association à l'université -->
+        <div class="form-group">
+          <label for="universite">Université</label>
+          <select id="universite" class="form-control mb-2" [(ngModel)]="selectedFoyer.universite" name="universite">
+            <option *ngFor="let universite of universites" [ngValue]="universite">{{ universite.nomUniversite }}</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-secondary">Mettre à jour</button>
+      </form>
+    </div>
+  </div>
+</div>

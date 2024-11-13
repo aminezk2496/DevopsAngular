@@ -1,0 +1,70 @@
+<div class="container mt-5">
+  <div class="d-flex justify-content-between">
+    <!-- Formulaires d'ajout et recherche dans un seul tableau -->
+    <div style="width: 48%;">
+
+      <table class="table table-bordered" style="background-color: #f5f9fc;">
+        <thead style="background-color: #000000; color: white;">
+          <tr>
+            <th>Opération</th>
+            <th>Entrée</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Formulaire d'ajout de bloc -->
+          <tr>
+            <td>Ajouter un bloc</td>
+            <td>
+              <input #nomBloc type="text" class="form-control mb-1" placeholder="Nom du bloc">
+              <input #capaciteBloc type="number" class="form-control mb-1" placeholder="Capacité du bloc">
+            </td>
+            <td class="text-center">
+              <button class="btn btn-secondary w-100" (click)="addBloc(nomBloc.value, +capaciteBloc.value)">Ajouter</button>
+            </td>
+          </tr>
+
+          <!-- Formulaire de recherche de bloc par ID de chambre -->
+          <tr>
+            <td>Recherche de bloc par ID de chambre</td>
+            <td>
+              <input [(ngModel)]="idChambre" type="number" class="form-control" placeholder="ID de la chambre">
+            </td>
+            <td class="text-center">
+              <button class="btn btn-secondary w-100" (click)="findByChambresIdChambre()">Rechercher par chambre</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Tableau des blocs à côté -->
+    <div style="width: 48%;">
+      <div *ngIf="blocs.length > 0; else noData">
+        <table class="table table-hover table-bordered" style="width: 100%; table-layout: fixed;">
+          <thead style="background-color: #000000; color: white;">
+            <tr>
+              <th>Nom du Bloc</th>
+              <th>Capacité</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let bloc of blocs">
+              <td>{{ bloc.nomBloc }}</td>
+              <td>{{ bloc.capaciteBloc }}</td>
+              <td>
+                <button class="btn btn-sm btn-outline-danger me-2" (click)="deleteBloc(bloc.idBloc!)">Supprimer</button>
+                <button class="btn btn-sm btn-outline-primary" (click)="selectBlocForUpdate(bloc)">Mettre à jour</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <ng-template #noData>
+        <p class="text-muted text-center">Aucun bloc trouvé.</p>
+      </ng-template>
+    </div>
+  </div>
+</div>
